@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Note</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" class="form-control" name="title" [(ngModel)]="newNote.title">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input id="description" class="form-control" name="description" [(ngModel)]="newNote.description">
+    </div>
+    <div class="form-group">
+        <label for="thetags">Tags</label>
+        <select multiple class="form-control" id="thetags" [(ngModel)]="newNote.tags">
+            <option *ngFor="let tag of tags" value="{{ tag.id }}">{{ tag.tag }}</option>
+        </select>
+    </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+</div>
